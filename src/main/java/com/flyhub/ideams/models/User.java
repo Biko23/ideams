@@ -1,11 +1,13 @@
 package com.flyhub.ideams.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -18,6 +20,9 @@ public class User {
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	@Column(name = "global_user_id")
 	private String global_user_id;
+	
+	@OneToMany(mappedBy = "idea_id")
+	private List<Idea> ideas;
 
 	// Login details
 	@Column(name = "user_name")
