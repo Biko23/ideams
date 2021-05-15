@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link href="../static/css/add_user.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<title>User Registration</title>
+</head>
+
+<body>
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Welcome</h3>
+                        <p>You are 30 seconds away from earning your own money!</p>
+                        <input type="submit" name="" value="Login"/><br/>
+                    </div>
+                    <div class="col-md-9 ">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">User Registration</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                    	<!--Login details-->
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="username *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                                        </div>
+                                        
+                                        <!--Personal details-->
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option class="hidden"  selected disabled></option>
+                                                <option th:each="prefix: ${prefixes}"
+                                                		th:value="${prefix.prefix_id}"
+                                                		th:text="${prefix.prefixCode}">What is your Birthdate?
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Middle Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Other Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="date" class="form-control" placeholder="Date of birth*" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option class="hidden"  selected disabled></option>
+                                                <option th:each="gender: ${genders}"
+                                                		th:value="${gender.gender_id}"
+                                                		th:text="${gender.genderLabel}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                        
+                                        <!--Identification Details-->
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="National Identification Number *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Nationality *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Native Language*" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option class="hidden"  selected disabled>Country</option>
+                                                <option th:each="country: ${countries}"
+                                                		th:value="${country.country_id}"
+                                                		th:text="${country.countryName}">What is your Birthdate?
+                                                </option>
+                                            </select>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <!-- Contact details -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
+                                        </div>
+                                        <form method="POST" th:href="@{/user_registration}">
+                                        <input type="submit" th:href="@{/user_registration}" class="btn btn-primary"  value="Register"/>
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+</body>
+            
+</html>
